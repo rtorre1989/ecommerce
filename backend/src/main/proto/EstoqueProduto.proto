@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package net.ecommerce.estoque.produtos;
+
+option java_package = "net.ecommerce.estoque.produtos";
+
+message Produto {
+
+    int32 id = 1;
+    string descricao = 2;
+    int32 estoque = 3;
+    double valor = 4;
+    string urlImagem = 5;
+
+}
+
+message ProdutoReq {
+
+    string req = 1;
+
+}
+
+message ProdutosEstoqueRes {
+
+    repeated Produto produtos = 1;
+
+}
+
+service EstoqueProdutosService {
+    rpc produtos(ProdutoReq) returns (ProdutosEstoqueRes);
+}
